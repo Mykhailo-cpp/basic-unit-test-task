@@ -42,24 +42,24 @@ src/test/java/lv/bootcamp/shelter/
 
 | # | Package   | Focus | Testing concepts |
 |---|-----------|-------|-----------------|
-| 1 | `task1`   | Pure logic | `assertEquals`, AAA pattern, naming |
-| 2 | `task23`  | Multiple rules | `@ParameterizedTest`, `@CsvSource` |
-| 3 | `task23`  | Error cases | `assertThrows`, exception messages |
-| 4 | `task4`   | Collection order | AssertJ list assertions |
-| 5 | `task5`   | CSV scenarios | `@Nested` classes, `@DisplayName` |
-| 6 | `stretch` | File output formatting | AssertJ string/list assertions |
-| 7 | `task6`   | Mocking a dependency | `@Mock`, `@InjectMocks`, `when/thenReturn`, `verify` |
-| 8 | All       | Coverage | IntelliJ coverage runner |
+| 1 | `task1`   | Pure logic | `assertEquals`, AAA pattern, naming | [x] Done |
+| 2 | `task23`  | Multiple rules | `@ParameterizedTest`, `@CsvSource` | [x] Done |
+| 3 | `task23`  | Error cases | `assertThrows`, exception messages | [x] Done |
+| 4 | `task4`   | Collection order | AssertJ list assertions | [x] Done |
+| 5 | `task5`   | CSV scenarios | `@Nested` classes, `@DisplayName` | [x] Done |
+| 6 | `stretch` | File output formatting | AssertJ string/list assertions | [x] Done |
+| 7 | `task6`   | Mocking a dependency | `@Mock`, `@InjectMocks`, `when/thenReturn`, `verify` | [x] Done |
+| 8 | All       | Coverage | IntelliJ coverage runner | [x] Done (coverage-notes.txt`) |
 
 `task5` introduces Mockito basics: mock a repository dependency so you can test the `IntakeService` in isolation. JPA and controller tests come later in M14.
 
 ## Task 8: Coverage check
 
 After completing tasks 1–7:
-1. Right-click the `test` folder → **Run All Tests with Coverage**
-2. Review which lines are green (covered) vs red (not covered)
-3. Identify at least two untested branches
-4. Decide: would tests for those branches catch real bugs?
+1. Right-click the `test` folder → **Run All Tests with Coverage** [x]
+2. Review which lines are green (covered) vs red (not covered) [x]
+3. Identify at least two untested branches [x]
+4. Decide: would tests for those branches catch real bugs? [x]
 
 ## Dependencies
 
