@@ -1,0 +1,63 @@
+================================================================================
+TASK 8 — COVERAGE CHECK
+Shelter Testing Practice
+================================================================================
+
+COVERAGE RESULTS
+--------------------------------------------------------------------------------
+Stage 1 — TODO-only tests
+
+  Package   Branch %
+  model     3%  (1/26)
+  stretch   100% (0/0)
+  task1     100% (10/10)
+  task4     62%  (5/8)
+  task5     88%  (16/18)
+  task6     87%  (7/8)
+  task23    93%  (15/16)
+
+Stage 2 — all tests implemented (boundary, edge-case, and model tests added):
+
+  Package   Branch %
+  model     100%
+  stretch   100% (0/0)
+  task1     100% (10/10)
+  task4     100% (8/8)
+  task5     100% (18/18)
+  task6     100% (8/8)
+  task23    100% (16/16)
+
+================================================================================
+IDENTIFIED UNTESTED BRANCHES (Task 8 requirement: at least two)
+--------------------------------------------------------------------------------
+The following branches were identified as untested in Stage 1 and addressed
+in Stage 2:
+
+  1. model/AnimalType — isSenior() + fromDisplayName()
+     Entire class was at 0% coverage. isSenior relies on integer division
+     with boundary logic (e.g. DOG threshold is 15/2=7); fromDisplayName has
+     null/blank guards and a case-insensitive lookup loop.
+     -> ADDRESSED by adding AnimalTypeTest.
+
+  2. task6/IntakeService.findByName(null)
+     The `name == null` side of `name == null || name.isBlank()` was never
+     exercised. Confirmed via IntelliJ gutter (partial yellow bar).
+     -> ADDRESSED by adding shouldThrowForNullName() test.
+
+  3. task4/AnimalSorter — null-guard branches on sortByName,
+     sortByIntakeDate, sortBySpeciesThenAgeDescending
+     Only sortByAge's null case was originally tested. The identical null
+     guards on the other three sort methods were uncovered.
+     -> ADDRESSED by adding null-input tests for each sort method.
+
+  4. task23/AnimalValidator.validateSpecies — entire method untested
+     The skeleton only had tests for validateName and validateAge.
+     -> ADDRESSED by adding ValidateSpecies nested test class.
+
+Would tests for these branches catch real bugs?
+     YES for all four. Each represents a real guard, boundary, or validation
+     path — not a trivial getter. The integer-division boundary in isSenior
+     is the strongest example: a change from `>` to `>=` would silently
+     alter behavior unless the boundary is pinned by a test.
+
+And so, U tried to cover all branches, reaching 100% coverage

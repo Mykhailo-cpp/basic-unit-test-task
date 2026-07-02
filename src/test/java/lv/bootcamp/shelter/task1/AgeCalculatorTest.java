@@ -3,8 +3,6 @@ package lv.bootcamp.shelter.task1;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,9 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * - assertEquals for return values
  * - assertThrows for invalid input
  *
- * Instructions:
- * Write tests for AgeCalculator. Each TODO describes one test to write.
- * Remove the TODO comments as you implement each test.
  */
 @DisplayName("AgeCalculator")
 class AgeCalculatorTest {
@@ -36,22 +31,28 @@ class AgeCalculatorTest {
     @Test
     @DisplayName("toMonths: 0 years returns 0 months")
     void shouldReturnZeroMonthsForZeroYears() {
-        // TODO: Arrange — nothing extra needed (calculator is set up in @BeforeEach)
-        // TODO: Act — call calculator.toMonths(0)
-        // TODO: Assert — assertEquals(0, result)
+
+        int result = calculator.toMonths(0);
+
+        assertEquals(0, result);
     }
 
     @Test
     @DisplayName("toMonths: positive years returns correct months")
     void shouldConvertPositiveYearsToMonths() {
-        // TODO: Test that 3 years = 36 months
+        int result = calculator.toMonths(3);
+
+        assertEquals(36, result);
     }
 
     @Test
     @DisplayName("toMonths: negative years throws IllegalArgumentException")
     void shouldThrowForNegativeYears() {
-        // TODO: Use assertThrows to verify that toMonths(-1) throws IllegalArgumentException
-        // TODO: Optionally check the exception message contains "negative"
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.toMonths(-1);
+        });
+
+        assertTrue(exception.getMessage().contains("Years must not be negative"));
     }
 
     // --- dogToHumanYears() ---
@@ -59,31 +60,43 @@ class AgeCalculatorTest {
     @Test
     @DisplayName("dogToHumanYears: age 0 returns 0")
     void shouldReturnZeroHumanYearsForPuppy() {
-        // TODO: Test that dogToHumanYears(0) returns 0
+        int result = calculator.dogToHumanYears(0);
+
+        assertEquals(0, result);
     }
 
     @Test
     @DisplayName("dogToHumanYears: age 1 returns 15")
     void shouldReturnFifteenForOneYearOldDog() {
-        // TODO: Test that dogToHumanYears(1) returns 15
+        int result = calculator.dogToHumanYears(1);
+
+        assertEquals(15, result);
     }
 
     @Test
     @DisplayName("dogToHumanYears: age 2 returns 24")
     void shouldReturnTwentyFourForTwoYearOldDog() {
-        // TODO: Test that dogToHumanYears(2) returns 24
+        int result = calculator.dogToHumanYears(2);
+
+        assertEquals(24, result);
     }
 
     @Test
     @DisplayName("dogToHumanYears: age 5 returns 39")
     void shouldCalculateCorrectlyForOlderDog() {
-        // TODO: Test that dogToHumanYears(5) returns 24 + (5-2)*5 = 39
+        int result = calculator.dogToHumanYears(5);
+
+        assertEquals(39, result);
     }
 
     @Test
     @DisplayName("dogToHumanYears: negative age throws IllegalArgumentException")
     void shouldThrowForNegativeDogAge() {
-        // TODO: Use assertThrows for negative input
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.dogToHumanYears(-1);
+        });
+
+        assertTrue(exception.getMessage().contains("Dog age must not be negative"));
     }
 
     // --- isBaby() ---
@@ -91,12 +104,16 @@ class AgeCalculatorTest {
     @Test
     @DisplayName("isBaby: age 0 returns true")
     void shouldReturnTrueForAgZero() {
-        // TODO: Test that isBaby(0) returns true
+        boolean result = calculator.isBaby(0);
+
+        assertTrue(result);
     }
 
     @Test
     @DisplayName("isBaby: age 1 returns false")
     void shouldReturnFalseForAgeOne() {
-        // TODO: Test that isBaby(1) returns false
+        boolean result = calculator.isBaby(1);
+
+        assertFalse(result);
     }
 }
