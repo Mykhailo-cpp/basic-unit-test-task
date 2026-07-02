@@ -41,7 +41,7 @@ src/test/java/lv/bootcamp/shelter/
 ## Tasks overview
 
 | # | Package   | Focus | Testing concepts | Status |
-|---|-----------|-------|-----------------|
+|---|-----------|-------|-----------------|--------|
 | 1 | `task1`   | Pure logic | `assertEquals`, AAA pattern, naming | [x] Done |
 | 2 | `task23`  | Multiple rules | `@ParameterizedTest`, `@CsvSource` | [x] Done |
 | 3 | `task23`  | Error cases | `assertThrows`, exception messages | [x] Done |
